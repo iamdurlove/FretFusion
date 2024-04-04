@@ -6,8 +6,8 @@ const MenuLink = () => {
         <div className="title flex justify-center lg:justify-end space-x-5 text-sm">
             <Link href={route("home")}>Home</Link>
             <Link href={route("about")}>About</Link>
-            {/* <Link href={route("contact-us")}>Contacto</Link> */}
-            <Link href={route("home")}>FretFusion</Link>
+            <Link href={route("contact")}>Contact</Link>
+            <Link href={route("products")}>FretFusion Products</Link>
         </div>
     );
 };

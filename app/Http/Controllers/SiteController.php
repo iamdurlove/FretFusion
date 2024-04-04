@@ -19,11 +19,7 @@ class SiteController extends Controller
 
         $user = User::all();
 
-        return Inertia::render('About', [
-            'users' => $user,
-            'title' => "About Us",
-            'name' => "Durlav"
-        ]);
+        return Inertia::render('About');
     }
 
     public function products()
