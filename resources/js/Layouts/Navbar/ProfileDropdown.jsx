@@ -2,7 +2,6 @@ import React from "react";
 import Dropdown from "@/Components/Dropdown";
 import { BsCartCheckFill } from "react-icons/bs";
 import { FaAngleDown } from "react-icons/fa";
-import { FaUserCircle } from "react-icons/fa";
 import NavLink from "@/Components/NavLink";
 
 const ProfileDropdown = ({ auth }) => {

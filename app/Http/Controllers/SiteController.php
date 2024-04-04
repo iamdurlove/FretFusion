@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -18,13 +19,14 @@ class SiteController extends Controller
     {
 
         $user = User::all();
-
         return Inertia::render('About');
     }
 
     public function products()
     {
-        return Inertia::render('Product');
+        $products = Product::all();
+        return Inertia::render('Product', ['products' => $products]);
+        // return Inertia::render('Product');
     }
     public function contact()
     {

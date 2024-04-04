@@ -36,7 +36,7 @@ const Navbar = () => {
                         <div className="hidden lg:flex lg:gap-6 ">
                             {linksNavbar.map((item, key) => (
                                 <NavLink
-                                    className="activ"
+                                    className="active"
                                     key={key}
                                     href={route(item.route)}
                                     active={route().current(item.route)}
