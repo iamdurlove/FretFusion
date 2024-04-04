@@ -3,7 +3,7 @@ import AppLayout from "@/Layouts/AppLayout";
 
 const Home = () => {
     return (
-        <AppLayout>
+        <AppLayout title="Home">
             <div className="container mx-auto">
                 <div className="flex justify-center items-center h-screen">
                     <h1 className="text-4xl font-bold text-center">

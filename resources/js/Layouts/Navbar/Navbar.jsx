@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import ApplicationLogo from "@/Components/ApplicationLogo";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link, usePage } from "@inertiajs/react";
 import ProfileDropdown from "./ProfileDropdown";
-// import { h1 } from "@/Components/Elements";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
     const { auth } = usePage().props;
@@ -30,7 +29,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="border-b drop-shadow-lg  border-gray-100 bg-black ">
+        <nav className="border-b drop-shadow-lg text-white  border-gray-100 bg-black ">
             <div className="px-20 container mx-auto ">
                 <div className="grid h-16 grid-cols-3 items-center justify-between lg:h-20">
                     <div className="flex">
@@ -54,7 +53,8 @@ const Navbar = () => {
                         </Link>
                     </div>
 
-                    <div className="hidden gap-6 lg:flex lg:items-center lg:justify-end ">
+                    <div className="hidden gap-1 lg:flex lg:items-center lg:justify-end ">
+                        <FaUserCircle />
                         {auth.user ? (
                             <ProfileDropdown auth={auth} />
                         ) : (

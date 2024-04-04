@@ -14,7 +14,7 @@ const ProfileDropdown = ({ auth }) => {
                         <span className="inline-flex ">
                             <button
                                 type="button"
-                                className="title inline-flex items-center border border-transparent bg-white  text-sm hover:text-gray-600 focus:outline-none"
+                                className="title inline-flex items-center border border-transparent  text-sm hover:text-gray-300 focus:outline-none"
                             >
                                 {auth.user.name}
                                 <FaAngleDown className="ml-1 h-4 w-4 " />
