@@ -1,17 +1,16 @@
-import Footer from "@/Layouts/Footer/Footer";
-import Navbar from "@/Layouts/Navbar/Navbar";
-import { Link, Head } from "@inertiajs/react";
-import { renderToPipeableStream } from "react-dom/server";
-
+import AppLayout from "@/Layouts/AppLayout";
+import React from "react";
 const About = ({ title, name }) => {
     return (
-        <>
-            <Head title={renderToPipeableStream} />
-            <Navbar />
-
-            <h1>this is about page, {name}</h1>
-            <Footer />
-        </>
+        <AppLayout>
+            <div className="container mx-auto">
+                <div className="flex justify-center items-center h-screen">
+                    <h1 className="text-4xl font-bold text-center">
+                        About Section
+                    </h1>
+                </div>
+            </div>
+        </AppLayout>
     );
 };
 

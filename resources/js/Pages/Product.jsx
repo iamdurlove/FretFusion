@@ -1,14 +1,17 @@
-import Footer from "@/Layouts/Footer/Footer";
-import Navbar from "@/Layouts/Navbar/Navbar";
+import AppLayout from "@/Layouts/AppLayout";
 import React from "react";
 
 const Product = () => {
     return (
-        <>
-            <Navbar />
-            <h1>this is product page</h1>
-            <Footer />
-        </>
+        <AppLayout>
+            <div className="container mx-auto">
+                <div className="flex justify-center items-center h-screen">
+                    <h1 className="text-4xl font-bold text-center">
+                        Our Products
+                    </h1>
+                </div>
+            </div>
+        </AppLayout>
     );
 };
 

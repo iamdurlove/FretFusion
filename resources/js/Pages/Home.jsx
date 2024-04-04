@@ -1,15 +1,17 @@
 import React from "react";
-import Navbar from "@/Layouts/Navbar/Navbar";
-import Footer from "@/Layouts/Footer/Footer";
+import AppLayout from "@/Layouts/AppLayout";
 
 const Home = () => {
     return (
-        <>
-            <Navbar />
-
-            <h1>this is home</h1>
-            <Footer />
-        </>
+        <AppLayout>
+            <div className="container mx-auto">
+                <div className="flex justify-center items-center h-screen">
+                    <h1 className="text-4xl font-bold text-center">
+                        Welcome to FretFusion
+                    </h1>
+                </div>
+            </div>
+        </AppLayout>
     );
 };
 

@@ -28,6 +28,10 @@ class SiteController extends Controller
 
     public function products()
     {
-        return Inertia::render('Products');
+        return Inertia::render('Product');
+    }
+    public function contact()
+    {
+        return Inertia::render('Contact');
     }
 }

@@ -16,22 +16,22 @@ const Navbar = () => {
             title: "Home",
         },
         {
+            route: "products",
+            title: "Our Products",
+        },
+        {
             route: "about",
             title: "About Us",
         },
-        // {
-        //     route: "contact",
-        //     title: "Blog",
-        // },
         {
-            route: "products",
-            title: "Our Products",
+            route: "contact",
+            title: "Contact",
         },
     ];
 
     return (
-        <nav className="border-b border-gray-100 bg-white ">
-            <div className="container mx-auto ">
+        <nav className="border-b drop-shadow-lg  border-gray-100 bg-black ">
+            <div className="px-20 container mx-auto ">
                 <div className="grid h-16 grid-cols-3 items-center justify-between lg:h-20">
                     <div className="flex">
                         <div className="hidden lg:flex lg:gap-6 ">
@@ -48,7 +48,9 @@ const Navbar = () => {
                     </div>
                     <div>
                         <Link href="/">
-                            <ApplicationLogo className="mx-auto block h-14 w-auto" />
+                            <h1 className="text-center text-white">
+                                FretFusion
+                            </h1>
                         </Link>
                     </div>
 
