@@ -1,23 +1,24 @@
 import AppLayout from "@/Layouts/AppLayout";
 import React from "react";
 import { usePage } from "@inertiajs/react";
+import Pagination from "@/Components/Pagination";
 
 const Product = () => {
     const { products } = usePage().props;
-    console.log(products);
+    // console.log(products);
     return (
         <AppLayout title="Our Products">
-            <div className="container mx-auto">
+            {/* <div className="container mx-auto">
                 <div className="flex justify-center items-center h-screen">
                     <h1 className="text-4xl font-bold text-center">
                         Our Products
                     </h1>
                 </div>
-            </div>
+            </div> */}
 
-            <div className="container mx-auto">
+            <div className="container mx-auto px-40">
                 <div className="grid grid-cols-3 gap-4">
-                    {products.map((product) => (
+                    {products.data.map((product) => (
                         <div
                             key={product.id}
                             className="bg-white p-4 shadow-md rounded-md"
@@ -36,9 +37,24 @@ const Product = () => {
                             <p className="text-sm text-gray-500">
                                 Price: {product.price}
                             </p>
+                            <div className="flex justify-center  gap-5">
+                                <button
+                                    style={{
+                                        backgroundColor: "red",
+                                        color: "white",
+                                        padding: "5px 10px",
+                                        borderRadius: "5px",
+                                    }}
+                                    className="btn btn-primary"
+                                    type="submit"
+                                >
+                                    Add to Cart
+                                </button>
+                            </div>
                         </div>
                     ))}
                 </div>
+                <Pagination links={products.links} />
             </div>
         </AppLayout>
     );
