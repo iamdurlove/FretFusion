@@ -13,8 +13,9 @@ class CartController extends Controller
      */
     public function index()
     {
+        $query = Cart::where('user_id', auth()->id())->get();
         return inertia('Cart/Index', [
-            'carts' => Cart::where('user_id', auth()->id())->get(),
+            'carts' => $query,
         ]);
     }
 

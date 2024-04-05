@@ -19,7 +19,9 @@ const Product = () => {
             <div className="container mx-auto px-40">
                 <div className="grid grid-cols-3 gap-4">
                     {products.data.map((product) => (
-                        <div
+                        <form
+                            method="post"
+                            action={route("cart.store")}
                             key={product.id}
                             className="bg-white p-4 shadow-md rounded-md"
                         >
@@ -51,7 +53,7 @@ const Product = () => {
                                     Add to Cart
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     ))}
                 </div>
                 <Pagination links={products.links} />

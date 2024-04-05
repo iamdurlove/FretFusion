@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
+use Carbon\Carbon;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,11 +18,15 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Durlav Parajuli',
+            'email' => 'test@gmail.com',
+            'password'=> bcrypt('test1234'),
+            'email_verified_at' => Carbon::now()->toDateTimeString(),
+        ]);
 
         Product::factory(100)->create();
+
+        Cart::factory(10)->create();
     }
 }

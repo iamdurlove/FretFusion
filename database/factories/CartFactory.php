@@ -17,7 +17,8 @@ class CartFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => 1,
+            'product_id' => random_int(1, 100),
         ];
     }
 }
