@@ -59,9 +59,20 @@ const Navbar = () => {
                         {auth.user ? (
                             <ProfileDropdown auth={auth} />
                         ) : (
-                            <Link className="btn btn-md " href={route("login")}>
-                                Login
-                            </Link>
+                            <div className="flex gap-5">
+                                <Link
+                                    className="btn btn-md "
+                                    href={route("login")}
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    className="btn btn-md "
+                                    href={route("register")}
+                                >
+                                    Register
+                                </Link>
+                            </div>
                         )}
                     </div>
 

@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Head, usePage } from "@inertiajs/react";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";

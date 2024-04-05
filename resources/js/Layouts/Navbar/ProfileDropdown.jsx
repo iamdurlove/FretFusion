@@ -7,7 +7,7 @@ import NavLink from "@/Components/NavLink";
 const ProfileDropdown = ({ auth }) => {
     return (
         <div className="flex items-center gap-6">
-            <div className="relative ">
+            <div className="relative text-nowrap">
                 <Dropdown>
                     <Dropdown.Trigger>
                         <span className="inline-flex ">
@@ -26,6 +26,12 @@ const ProfileDropdown = ({ auth }) => {
                             My Profile
                         </Dropdown.Link>
                         <Dropdown.Link
+                            href={route("profile.edit")}
+                            method="get"
+                        >
+                            Edit Profile
+                        </Dropdown.Link>
+                        <Dropdown.Link
                             href={route("logout")}
                             method="post"
                             as="button"
@@ -35,7 +41,7 @@ const ProfileDropdown = ({ auth }) => {
                     </Dropdown.Content>
                 </Dropdown>
             </div>
-            <NavLink href={route("home")} active={false}>
+            <NavLink href={route("cart.index")}>
                 <div className="flex items-center ">
                     <BsCartCheckFill className="h-5 w-5 " />
                 </div>
