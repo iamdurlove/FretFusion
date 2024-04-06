@@ -5,16 +5,16 @@ import Pagination from "@/Components/Pagination";
 
 const Product = () => {
     const { products } = usePage().props;
-    // console.log(products);
+    console.log(products);
     return (
         <AppLayout title="Our Products">
-            {/* <div className="container mx-auto">
-                <div className="flex justify-center items-center h-screen">
+            <div className="container mx-auto">
+                <div className="flex justify-center items-center pt-10">
                     <h1 className="text-4xl font-bold text-center">
                         Our Products
                     </h1>
                 </div>
-            </div> */}
+            </div>
 
             <div className="container mx-auto px-40">
                 <div className="grid grid-cols-3 gap-4">
@@ -30,7 +30,10 @@ const Product = () => {
                                 alt={product.name}
                                 className="w-full h-48 object-cover"
                             />
-                            <h1 className="text-lg font-bold mt-2">
+                            <h1
+                                name={product.id}
+                                className="text-lg font-bold mt-2"
+                            >
                                 {product.name}
                             </h1>
                             <p className="text-sm text-gray-500">
@@ -56,7 +59,17 @@ const Product = () => {
                         </form>
                     ))}
                 </div>
-                <Pagination links={products.links} />
+                {products.data.length > 0 ? (
+                    <Pagination links={products.links} />
+                ) : (
+                    <div className="container mx-auto">
+                        <div className="flex justify-center items-center h-screen">
+                            <h1 className="text-4xl font-bold text-center">
+                                No Products Found
+                            </h1>
+                        </div>
+                    </div>
+                )}
             </div>
         </AppLayout>
     );

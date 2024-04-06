@@ -13,7 +13,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        $query = Cart::where('user_id', auth()->id())->get();
+        $query = Cart::with('product')->get();
         return inertia('Cart/Index', [
             'carts' => $query,
         ]);
@@ -32,7 +32,7 @@ class CartController extends Controller
      */
     public function store(StoreCartRequest $request)
     {
-        //
+        return inertia('/');
     }
 
     /**

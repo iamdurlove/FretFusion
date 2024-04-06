@@ -28,7 +28,8 @@ Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
 
 
 Route::middleware('auth', 'verified')->group(function () {
-    Route::resource('/cart', CartController::class)->only(['index', 'store', 'update', 'destroy']);
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 
     //profile
     Route::get('/dashboard', [ProfileController::class, 'index'])->name('dashboard');

@@ -14,15 +14,17 @@ class ProductFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    
+
 
     public function definition(): array
     {
         return [
             'name' => fake()->name(),
             'description' => fake()->text(),
-            'price' => fake()->randomDigit(),
-            'image' => "https://source.unsplash.com/random/500x500",
+            'price' => random_int(1000, 5000),
+            'image' =>
+                "https://picsum.photos/id/" . random_int(1, 500) . "/500/500"
+            ,
             'stock' => fake()->randomDigit(),
         ];
     }
