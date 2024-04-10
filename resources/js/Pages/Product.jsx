@@ -7,12 +7,11 @@ const Product = () => {
     const { products, auth } = usePage().props;
     const { post } = useForm();
 
-    const storeCart = (pid, uid) => {
+    const storeCart = (pid) => {
         return () => {
-            console.log(pid, uid);
+            console.log(pid);
             router.post("/cart", {
                 product_id: pid,
-                user_id: uid,
             });
         };
     };
@@ -54,10 +53,7 @@ const Product = () => {
                             </p>
                             <div className="flex justify-center  gap-5">
                                 <button
-                                    onClick={storeCart(
-                                        product.id,
-                                        auth.user.id
-                                    )}
+                                    onClick={storeCart(product.id)}
                                     style={{
                                         backgroundColor: "red",
                                         color: "white",

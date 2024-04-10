@@ -3,10 +3,12 @@ import React from "react";
 import { usePage } from "@inertiajs/react";
 
 const Index = () => {
-    const { carts } = usePage().props;
+    const { carts, success } = usePage().props;
     console.log(carts);
+    console.log(success);
     return (
         <AppLayout title="Cart">
+            {success && <div className="alert alert-success">{success}</div>}
             <div className="container mx-auto">
                 <div className="flex justify-center items-center h-screen">
                     <div className="bg-white p-8 rounded-lg shadow-lg">

@@ -18,15 +18,25 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Durlav Parajuli',
-            'email' => 'test@gmail.com',
-            'password'=> bcrypt('test1234'),
-            'email_verified_at' => Carbon::now()->toDateTimeString(),
-        ]);
+        User::factory()->create(
+            [
+                'name' => 'Durlav Parajuli',
+                'email' => 'test@gmail.com',
+                'password' => bcrypt('test1234'),
+                'email_verified_at' => Carbon::now()->toDateTimeString(),
+            ]
+        );
+        User::factory()->create(
+            [
+                'name' => 'Bibas Neupane',
+                'email' => 'bibas@gmail.com',
+                'password' => bcrypt('test1234'),
+                'email_verified_at' => Carbon::now()->toDateTimeString(),
+            ]
+        );
 
         Product::factory(100)->create();
 
-        Cart::factory(10)->create();
+        // Cart::factory(10)->create();
     }
 }

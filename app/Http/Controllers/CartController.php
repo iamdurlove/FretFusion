@@ -32,7 +32,9 @@ class CartController extends Controller
      */
     public function store(StoreCartRequest $request)
     {
+        $user = auth()->user();
         $data = $request->validated();
+        $data['user_id'] = $user->id;
 
         $checkProduct = Cart::where('product_id', $data['product_id'])->where('user_id', $data['user_id'])->first();
 
