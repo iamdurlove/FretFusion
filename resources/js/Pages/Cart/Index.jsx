@@ -58,6 +58,25 @@ const Index = () => {
                                 ))}
                             </tbody>
                         </table>
+
+                        <div className="mt-4">
+                            <h2 className="text-xl font-bold mb-2">Checkout</h2>
+                            <div className="flex justify-between items-center">
+                                <span className="font-bold">Total:</span>
+                                <span className="text-green-500 font-bold">
+                                    $
+                                    {carts.reduce(
+                                        (total, cart) =>
+                                            total +
+                                            cart.product.price * cart.quantity,
+                                        0
+                                    )}
+                                </span>
+                            </div>
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded mt-4">
+                                Checkout
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
