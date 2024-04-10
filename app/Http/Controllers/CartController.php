@@ -32,7 +32,31 @@ class CartController extends Controller
      */
     public function store(StoreCartRequest $request)
     {
-        return inertia('/');
+        $data = $request->validated();
+
+        $checkProduct = Cart::where('product_id', $data['product_id'])->where('user_id', $data['user_id'])->first();
+
+        if ($checkProduct) {
+            $checkProduct->quantity += 1;
+            $query = $checkProduct->save();
+            if ($query) {
+                return redirect()->route('cart.index')->with('success', 'Product added to cart');
+            } else {
+                // Redirect back with an error message if creation fails
+                return redirect()->back()->withInput()->withErrors(['error' => 'Failed to add product to cart']);
+            }
+        }
+        // Create a new Cart instance with the validated data
+        $query = Cart::create($data);
+        // dd($query->toArray());
+        // Check if the record was successfully created
+        if ($query) {
+            return redirect()->route('cart.index')->with('success', 'Product added to cart');
+        } else {
+            // Redirect back with an error message if creation fails
+            return redirect()->back()->withInput()->withErrors(['error' => 'Failed to add product to cart']);
+        }
+
     }
 
     /**

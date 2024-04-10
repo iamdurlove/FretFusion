@@ -1,11 +1,23 @@
 import AppLayout from "@/Layouts/AppLayout";
 import React from "react";
-import { usePage } from "@inertiajs/react";
+import { Link, router, useForm, usePage } from "@inertiajs/react";
 import Pagination from "@/Components/Pagination";
 
 const Product = () => {
-    const { products } = usePage().props;
-    console.log(products);
+    const { products, auth } = usePage().props;
+    const { post } = useForm();
+
+    const storeCart = (pid, uid) => {
+        return () => {
+            console.log(pid, uid);
+            router.post("/cart", {
+                product_id: pid,
+                user_id: uid,
+            });
+        };
+    };
+
+    // console.log(products);
     return (
         <AppLayout title="Our Products">
             <div className="container mx-auto">
@@ -19,9 +31,7 @@ const Product = () => {
             <div className="container mx-auto px-40">
                 <div className="grid grid-cols-3 gap-4">
                     {products.data.map((product) => (
-                        <form
-                            method="post"
-                            action={route("cart.store")}
+                        <div
                             key={product.id}
                             className="bg-white p-4 shadow-md rounded-md"
                         >
@@ -44,6 +54,10 @@ const Product = () => {
                             </p>
                             <div className="flex justify-center  gap-5">
                                 <button
+                                    onClick={storeCart(
+                                        product.id,
+                                        auth.user.id
+                                    )}
                                     style={{
                                         backgroundColor: "red",
                                         color: "white",
@@ -56,7 +70,7 @@ const Product = () => {
                                     Add to Cart
                                 </button>
                             </div>
-                        </form>
+                        </div>
                     ))}
                 </div>
                 {products.data.length > 0 ? (
