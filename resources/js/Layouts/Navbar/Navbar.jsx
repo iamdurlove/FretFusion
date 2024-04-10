@@ -48,7 +48,7 @@ const Navbar = () => {
                     </div>
                     <div>
                         <Link href="/">
-                            <h1 className="text-center text-white">
+                            <h1 className="text-center text-4xl font-bold text-white">
                                 FretFusion
                             </h1>
                         </Link>

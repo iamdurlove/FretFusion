@@ -1,9 +1,10 @@
 .hero{
-    height: 700px;
-    background-image: url("../../public/images/main-banner.jpg");
-    background-size: cover;
-    background-position: center;
+    height: 400px;
+    /* background-image: url("https://timelinecovers.pro/facebook-cover/download/playing-the-guitar-facebook-cover.jpg"); */
+    background-size: 100%;
+    /* background-position: center; */
     background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.804), rgba(0, 0, 0, 0.985)), url("https://timelinecovers.pro/facebook-cover/download/playing-the-guitar-facebook-cover.jpg");
 
 }
 

@@ -2,21 +2,40 @@ import React from "react";
 import AppLayout from "@/Layouts/AppLayout";
 import { usePage } from "@inertiajs/react";
 import Hero from "@/Components/Hero";
+import ProductItem from "@/Components/ProductItem";
 
 const Home = () => {
-    const { auth } = usePage().props;
+    const { auth, products } = usePage().props;
     console.log(auth);
     return (
         <AppLayout title="Home">
+            <Hero />
             <div className="container mx-auto">
-                <div className="flex justify-center items-center pt-10">
-                    <h1 className="text-4xl font-bold text-center">
+                <div className=" items-center">
+                    <h1 className="text-xl font-bold text-center pt-5">
                         Welcome to FretFusion,{" "}
                         {auth.user ? auth.user.name : "Guest"}
                     </h1>
+                    <h1 className="text-4xl font-bold text-center pt-5">
+                        Our Products
+                    </h1>
                 </div>
             </div>
-            {/* <Hero /> */}
+
+            <div className="container mx-auto px-40">
+                <div className="grid grid-cols-3 gap-4">
+                    {products.data.map((product) => (
+                        <ProductItem
+                            key={product.id}
+                            product={product.name}
+                            price={product.price}
+                            id={product.id}
+                            image={product.image}
+                        />
+                    ))}
+                </div>
+            </div>
+
             <div className="container mx-auto">
                 <section id="about-us" className="py-8 px-20">
                     <h2 className="text-2xl font-bold mb-4">About Us</h2>

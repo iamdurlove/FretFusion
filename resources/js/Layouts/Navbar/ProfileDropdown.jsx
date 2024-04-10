@@ -41,9 +41,13 @@ const ProfileDropdown = ({ auth }) => {
                     </Dropdown.Content>
                 </Dropdown>
             </div>
-            <NavLink href={route("cart.index")}>
+            <NavLink
+                href={route("cart.index")}
+                active={route().current("cart.index") ? true : false}
+            >
                 <div className="flex items-center ">
                     <BsCartCheckFill className="h-5 w-5 " />
+                    Carts
                 </div>
             </NavLink>
         </div>

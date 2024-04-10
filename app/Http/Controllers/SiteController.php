@@ -12,7 +12,9 @@ class SiteController extends Controller
 
     public function home()
     {
-        return Inertia::render('Home');
+        $query = Product::query();
+        $products = $query->paginate(12)->onEachSide(1);
+        return inertia('Home', ['products' => $products]);
     }
 
     public function about()
