@@ -1,6 +1,7 @@
 import React from "react";
 import AppLayout from "@/Layouts/AppLayout";
 import { usePage } from "@inertiajs/react";
+import Hero from "@/Components/Hero";
 
 const Home = () => {
     const { auth } = usePage().props;
@@ -15,6 +16,7 @@ const Home = () => {
                     </h1>
                 </div>
             </div>
+            {/* <Hero /> */}
             <div className="container mx-auto">
                 <section id="about-us" className="py-8 px-20">
                     <h2 className="text-2xl font-bold mb-4">About Us</h2>

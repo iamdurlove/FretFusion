@@ -2,6 +2,7 @@ import AppLayout from "@/Layouts/AppLayout";
 import React from "react";
 import { Link, router, useForm, usePage } from "@inertiajs/react";
 import Pagination from "@/Components/Pagination";
+import ProductItem from "@/Components/ProductItem";
 
 const Product = () => {
     const { products, auth } = usePage().props;
@@ -16,7 +17,7 @@ const Product = () => {
         };
     };
 
-    // console.log(products);
+    console.log(products);
     return (
         <AppLayout title="Our Products">
             <div className="container mx-auto">
@@ -30,43 +31,50 @@ const Product = () => {
             <div className="container mx-auto px-40">
                 <div className="grid grid-cols-3 gap-4">
                     {products.data.map((product) => (
-                        <div
+                        <ProductItem
                             key={product.id}
-                            className="bg-white p-4 shadow-md rounded-md"
-                        >
-                            <img
-                                src={product.image}
-                                alt={product.name}
-                                className="w-full h-48 object-cover"
-                            />
-                            <h1
-                                name={product.id}
-                                className="text-lg font-bold mt-2"
-                            >
-                                {product.name}
-                            </h1>
-                            <p className="text-sm text-gray-500">
-                                {product.description}
-                            </p>
-                            <p className="text-sm text-gray-500">
-                                Price: {product.price}
-                            </p>
-                            <div className="flex justify-center  gap-5">
-                                <button
-                                    onClick={storeCart(product.id)}
-                                    style={{
-                                        backgroundColor: "red",
-                                        color: "white",
-                                        padding: "5px 10px",
-                                        borderRadius: "5px",
-                                    }}
-                                    className="btn btn-primary"
-                                    type="submit"
-                                >
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
+                            product={product.name}
+                            price={product.price}
+                            id={product.id}
+                            image={product.image}
+                        />
+                        // <div
+                        //     key={product.id}
+                        //     className="bg-white p-4 shadow-md rounded-md"
+                        // >
+                        //     <img
+                        //         src={product.image}
+                        //         alt={product.name}
+                        //         className="w-full h-48 object-cover"
+                        //     />
+                        //     <h1
+                        //         name={product.id}
+                        //         className="text-lg font-bold mt-2"
+                        //     >
+                        //         {product.name}
+                        //     </h1>
+                        //     <p className="text-sm text-gray-500">
+                        //         {product.description}
+                        //     </p>
+                        //     <p className="text-sm text-gray-500">
+                        //         Price: {product.price}
+                        //     </p>
+                        //     <div className="flex justify-center  gap-5">
+                        //         <button
+                        //             onClick={storeCart(product.id)}
+                        //             style={{
+                        //                 backgroundColor: "red",
+                        //                 color: "white",
+                        //                 padding: "5px 10px",
+                        //                 borderRadius: "5px",
+                        //             }}
+                        //             className="btn btn-primary"
+                        //             type="submit"
+                        //         >
+                        //             Add to Cart
+                        //         </button>
+                        //     </div>
+                        // </div>
                     ))}
                 </div>
                 {products.data.length > 0 ? (

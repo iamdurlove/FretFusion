@@ -28,6 +28,12 @@ class SiteController extends Controller
         $products = $query->paginate(12)->onEachSide(1);
         return inertia('Product', ['products' => $products]);
     }
+
+    public function showProducts($id)
+    {
+        $product = Product::find($id);
+        return inertia('ProductShow', ['product' => $product]);
+    }
     public function contact()
     {
         return Inertia::render('Contact');

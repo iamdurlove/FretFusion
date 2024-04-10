@@ -19,6 +19,7 @@ use Inertia\Inertia;
 Route::get('/', [SiteController::class, 'home'])->name('home');
 Route::get('/about', [SiteController::class, 'about'])->name('about');
 Route::get('/products', [SiteController::class, 'products'])->name('products');
+Route::get('/products/{id}', [SiteController::class, 'showProducts'])->name('products.show');
 Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
 
 

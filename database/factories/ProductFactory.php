@@ -23,7 +23,7 @@ class ProductFactory extends Factory
             'description' => fake()->text(),
             'price' => random_int(1000, 5000),
             'image' =>
-                "https://picsum.photos/id/" . random_int(1, 500) . "/500/500"
+                "https://picsum.photos/id/" . random_int(1, 200) . "/500/500"
             ,
             'stock' => fake()->randomDigit(),
         ];
