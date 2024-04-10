@@ -1,3 +1,4 @@
+import SingleProduct from "@/Components/SingleProduct";
 import AppLayout from "@/Layouts/AppLayout";
 import { usePage } from "@inertiajs/react";
 import React from "react";
@@ -11,9 +12,13 @@ const ProductShow = () => {
             <AppLayout title="Product">
                 <div className="container mx-auto">
                     <div className="flex justify-center items-center pt-10">
-                        <h1 className="text-4xl font-bold text-center">
-                            Product
-                        </h1>
+                        <SingleProduct
+                            product={product.name}
+                            price={product.price}
+                            description={product.description}
+                            image={product.image}
+                            pid={product.id}
+                        />
                     </div>
                 </div>
             </AppLayout>

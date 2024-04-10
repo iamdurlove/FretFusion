@@ -1,14 +1,22 @@
 import AppLayout from "@/Layouts/AppLayout";
 import React from "react";
-import { usePage } from "@inertiajs/react";
+import { router, usePage } from "@inertiajs/react";
 
 const Index = () => {
-    const { carts, success } = usePage().props;
+    const { carts, errors } = usePage().props;
     console.log(carts);
-    console.log(success);
+    console.log(errors);
+
+    const deleteCart = (cid) => {
+        return () => {
+            console.log(cid);
+            router.delete(`/cart/${cid}`);
+        };
+    };
+
     return (
         <AppLayout title="Cart">
-            {success && <div className="alert alert-success">{success}</div>}
+            {/* {success && <div className="alert alert-success">{success}</div>} */}
             <div className="container mx-auto">
                 <div className="flex justify-center items-center h-screen">
                     <div className="bg-white p-8 rounded-lg shadow-lg">
@@ -20,6 +28,7 @@ const Index = () => {
                                     <th className="border p-2">Price</th>
                                     <th className="border p-2">Quantity</th>
                                     <th className="border p-2">Total</th>
+                                    <th className="border p-2">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,6 +45,14 @@ const Index = () => {
                                         </td>
                                         <td className="border p-2">
                                             {cart.product.price * cart.quantity}
+                                        </td>
+                                        <td className="border p-2">
+                                            <button
+                                                className="bg-red-500 text-white p-1 rounded"
+                                                onClick={deleteCart(cart.id)}
+                                            >
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}

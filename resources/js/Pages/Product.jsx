@@ -5,17 +5,7 @@ import Pagination from "@/Components/Pagination";
 import ProductItem from "@/Components/ProductItem";
 
 const Product = () => {
-    const { products, auth } = usePage().props;
-    const { post } = useForm();
-
-    const storeCart = (pid) => {
-        return () => {
-            console.log(pid);
-            router.post("/cart", {
-                product_id: pid,
-            });
-        };
-    };
+    const { products } = usePage().props;
 
     console.log(products);
     return (

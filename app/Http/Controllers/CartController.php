@@ -88,8 +88,15 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cart $cart)
+    public function destroy($id)
     {
-        //
+        // dd($id);
+        $query = Cart::where('id', $id)->delete();
+        if ($query) {
+            return redirect()->route('cart.index')->with('success', 'Product removed from cart');
+        } else {
+            return redirect()->back()->withInput()->withErrors(['error' => 'Failed to remove product from cart']);
+        }
+
     }
 }
